@@ -1,0 +1,16 @@
+{
+  "name": "Grunt-Initiation",
+  "version": "0.0.0",
+  "authors": [
+    "SevereOverfl0w <overfl0w@lycantech.co>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
