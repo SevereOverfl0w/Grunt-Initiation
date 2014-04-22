@@ -41,6 +41,16 @@ module.exports = function(grunt){
             default: ['.tmp'],
             build: ['dist']
         },
+        imagemin: {
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/',
+                    src: 'images/{,*/}*.{png,jpg,gif}',
+                    dest: '.tmp/'
+                }]
+            }
+        },
         copy: {
             default: {
                 expand: true,
@@ -51,7 +61,7 @@ module.exports = function(grunt){
             build: {
                 expand: true,
                 cwd: '.tmp',
-                src: ['*.html', 'images/{,*/}*.*'],
+                src: ['*.html', 'images/{,*/}*'],
                 dest: 'dist/'
             }
         },
@@ -158,5 +168,5 @@ module.exports = function(grunt){
 
     grunt.registerTask('default', ['clean', 'coffee', 'compass', 'autoprefixer', 'assemble', 'bowerInstall', 'copy']);
     grunt.registerTask('serve', ['default', 'connect', 'watch']);
-    grunt.registerTask('build', ['default', 'useminPrepare', 'concat', 'cssmin', 'uglify', 'rev', 'copy', 'usemin', 'htmlmin']);
+    grunt.registerTask('build', ['default', 'useminPrepare', 'concat', 'cssmin', 'uglify', 'imagemin', 'rev', 'copy', 'usemin', 'htmlmin']);
 };
