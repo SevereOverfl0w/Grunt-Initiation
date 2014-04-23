@@ -65,7 +65,7 @@ module.exports = function(grunt){
             default: {
                 expand: true,
                 cwd: 'app',
-                src: ['images/{,*/}*'],
+                src: ['images/{,*/}*', 'scripts/{,*/}*.js', 'styles/{,*/}*.css'],
                 dest: '.tmp'
             },
             build: {
