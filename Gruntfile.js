@@ -177,7 +177,6 @@ module.exports = function(grunt){
                         ]
                     },
                     livereload: true,
-                    //base: '.tmp',
                 }
             }
         }
