@@ -23,10 +23,11 @@ module.exports = function(grunt){
             },
             assemble: {
                 files: ['app/templates/{partials,pages,layouts}/{,*/}*.{md,hbs,yml}'],
-                tasks: ['assemble']
+                tasks: ['assemble', 'bowerInstall']
             },
             files: {
-                files: ['app/images/{,*/}*.*']
+                files: ['app/images/{,*/}*.*'],
+                tasks: ['copy']
             },
             options: {
                 livereload: true 
@@ -169,8 +170,14 @@ module.exports = function(grunt){
             },
             serve: {
                 options: {
+                    middleware: function(connect){
+                        return [
+                            connect.static('.tmp'),
+                            connect().use('/bower_components', connect.static('./bower_components')),
+                        ]
+                    },
                     livereload: true,
-                    base: '.tmp',
+                    //base: '.tmp',
                 }
             }
         }
